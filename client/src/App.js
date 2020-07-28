@@ -4,7 +4,7 @@ import About from "./pages/About";
 import Education from "./pages/Education";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+import Profile from "./pages/ProfileBuilder";
 import Returning from "./pages/Returning";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
