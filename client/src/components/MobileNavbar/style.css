@@ -1,0 +1,14 @@
+.mobile-nav-item{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 28px;
+    padding-top : 20px;
+    font-weight: 500;
+}
+
+.mobile-nav-list{
+    margin-top: 80px;
+}
+
+#mobileNav{
+    opacity: 0.8;
+}
