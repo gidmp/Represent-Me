@@ -29,7 +29,7 @@ function LandingPage() {
   // END TESTING API CALLS
   return (
     <Background image={imageLink}>
-        <Nav />
+        <Nav/>
         <PageTitle 
             title = "Your representative"
             description = "These are your representative "

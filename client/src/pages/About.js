@@ -8,7 +8,9 @@ import imageLink from "../assets/images/background/background1.jpg";
 function About (){
     return(
         <Background image = {imageLink}>
-            <Nav />
+            <Nav 
+             pageTitle = "ABOUT US"
+            />
             <TextArea>
                 <h3 className="uk-card-title">About Us</h3>
                 <p>

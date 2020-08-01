@@ -6,3 +6,7 @@ h1{
 .contact-icon{
     padding: 5px
 };
+
+.page-title{
+    z-index: 2;
+}
