@@ -18,13 +18,12 @@ const userSchema = new Schema({
         unique: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
-    
+
     location: { type: String, required: true },
     zipcode: { type: Number, required: true },
     date: { type: Date, default: Date.now }
 });
-  
+
 const User = mongoose.model("User", userSchema);
-  
+
 module.exports = User;
-  

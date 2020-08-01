@@ -1,17 +1,19 @@
 import React from "react";
 import Nav from "../components/Nav";
+import TextArea from "../components/TextArea";
 import Background from "../components/Background";
 import imageLink from "../assets/images/background/background1.jpg";
-import SignUp from "../components/SignUp"
 
 
-function Signup (){
+function Profile (){
     return(
         <Background image = {imageLink}>
-            <Nav></Nav>
-            <SignUp></SignUp>
+            <Nav />
+            <TextArea>
+                <h3 className="uk-card-title">Welcome to your profile, blahblahblah</h3>
+            </TextArea>
         </Background>
     )
 }
 
-export default Signup;
+export default Profile;
