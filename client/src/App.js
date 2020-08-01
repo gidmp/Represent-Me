@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./pages/About";
 // import Education from "./pages/Education";
 // import Home from "./pages/Home";
@@ -14,7 +14,7 @@ function App() {
     return (
       <Router>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/landingPage" component={LandingPage} />
+        <Route path="/landingpage" component={LandingPage} />
         <Route path="/about" component={About} />
         <MobileNavbar />
         <Footer />

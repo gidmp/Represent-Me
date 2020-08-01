@@ -10,7 +10,7 @@ function Nav(){
                 <nav className="uk-navbar-container uk-navbar-transparent" uk-navbar = "true">
                     <div className="uk-navbar-right">
                         <ul className="uk-navbar-nav uk-visible@m">
-                            <li><Link to = "/landingPage">Home</Link></li>
+                            <li><Link to = "/">Home</Link></li>
                             {/* <li><Link to = "/portfolio">Vote</Link></li>
                             <li><Link to = "/contact">Profile</Link></li> */}
                             <li><Link to = "/about">About</Link></li>
