@@ -1,5 +1,5 @@
 import React from "react";
-import VideoLink from "../../../public/assets/images/RepresentMe.mp4";
+import VideoLink from "../../assets/images/RepresentMe.mp4";
 import "./style.css";
 
 function Video() {
