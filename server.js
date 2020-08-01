@@ -1,23 +1,30 @@
 const express = require("express");
-const bodyParser = require('body-parser')
+const path = require("path");
 const mongoose = require("mongoose");
-//const routes = require("./routes/api-routes");
+
+const routes = require("./routes/api-routes");
 const app = express();
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
 
+=
 const PORT = process.env.PORT || 3001;
+const app = express();
+
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(express.static("public"));
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
 app.use(
   session({ secret: "super secret 12345", resave: true, saveUninitialized: true })
 );
@@ -39,7 +46,18 @@ app.get("*", function(req, res) {
 
 
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+);
+
+app.listen(PORT, function () {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

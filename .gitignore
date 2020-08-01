@@ -8,12 +8,13 @@
 /package-lock.json
 /client/package-lock.json
 
+
 # testing
 /coverage
 
 # production
 /build
-
+/.vscode
 # misc
 .DS_Store
 .env.local
