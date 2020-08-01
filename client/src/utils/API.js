@@ -4,7 +4,7 @@ require("dotenv").config();
 export default {
   getLegislatorsCID: function (state) {
     return axios.get(
-      `http://www.opensecrets.org/api/?method=getLegislators&id=${state}&apikey=810526b1ad2f947a64eb0c56d458a1bd&output=json`
+      `http://www.opensecrets.org/api/?method=getLegislators&id=${state}&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}&output=json`
     );
   },
 
@@ -28,7 +28,7 @@ export default {
 
   getRepresentatives: function (address) {
     return axios.get(
-      `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&key=AIzaSyBQz4XKQHRhNcFZnnExDuO4w3R3S78-jjc`
+      `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&key=${process.env.REACT_APP_GOOGLE_CIVICS_API_KEY}`
     );
   },
 };
