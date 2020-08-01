@@ -6,7 +6,7 @@ function SignUp() {
         <div>
         <form class="uk-form-stacked">
         <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Email</label>
+            <label class="uk-form-label" for="form-stacked-text">Email (Username)</label>
             <div class="uk-form-controls">
                 <input class="uk-input" id="form-stacked-text" type="text" placeholder="Email" />
             </div>
