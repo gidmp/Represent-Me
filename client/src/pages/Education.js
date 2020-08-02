@@ -2,11 +2,12 @@ import React from "react";
 import Nav from "../components/Nav";
 import TextArea from "../components/TextArea";
 import Background from "../components/Background";
+import imageLink from "../assets/images/background/buttonsandflags.jpg";
 
 
 function Education(){
     return(
-        <Background>
+        <Background image = {imageLink}>
             <Nav />
             <TextArea>
                 <h3 class="uk-card-title">What's the Difference?</h3>
@@ -58,11 +59,8 @@ function Education(){
                     Green:
                     Constitution:
         
-                    These are only the major and minor parties listed on many ballots in the US. This list is not exhastive- there are many smaller parties that have been created when people feel that no other party represents them!
+                    These are only the major and minor parties listed on most ballots in the US. This list is not exhastive- there are many other smaller parties that have been created when people feel that no other party represents them!
                 </p>
-            </TextArea>
-            <TextArea>
-                <h3 class="uk-card-title">Electoral College</h3>
             </TextArea>
         </Background>
     )
