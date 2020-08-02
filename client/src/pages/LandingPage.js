@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Nav from "../components/Nav";
 import Background from "../components/Background";
-import imageLink from "../assets/images/background/background1.jpg";
+import imageLink from "../assets/images/background/flagbg.jpg";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
@@ -24,8 +24,8 @@ function LandingPage() {
     <Background image={imageLink}>
       <Nav />
       <PageTitle
-        title="Your representative"
-        description="These are your representative "
+        title="Your representatives"
+        description="These are your representatives"
         paddingTop={140}
         paddingBottom={70}
       />

@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./pages/About";
-// import Education from "./pages/Education";
+import Education from "./pages/Education";
 import HomePage from "./pages/HomePage";
 // import Login from "./pages/Login";
-// import Profile from "./pages/ProfileBuilder";
 import LandingPage from "./pages/LandingPage";
 // import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
@@ -16,6 +15,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/landingpage" component={LandingPage} />
         <Route path="/about" component={About} />
+        <Route path="/education" component={Education} />
         <MobileNavbar />
         <Footer />
       </Router >

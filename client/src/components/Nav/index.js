@@ -13,7 +13,7 @@ function Nav(props){
                     <div className="uk-navbar-left">
                         <ul className="uk-navbar-nav uk-visible@m">
                             <li><Link to = "/">Home</Link></li>
-                            <li><Link to = "/landingpage">Representative</Link></li>
+                            <li><Link to = "/landingpage">Profile</Link></li>
                         </ul>
                     </div>
                     <div className="uk-navbar-center">
