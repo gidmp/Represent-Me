@@ -28,7 +28,7 @@ export default {
 
   getRepresentatives: function (address) {
     return axios.get(
-      `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&levels=administrativeArea1&roles=legislatorUpperBody&roles=legislatorLowerBody&roles=headOfGovernment&key=${process.env.REACT_APP_GOOGLE_CIVICS_API_KEY}`
+      `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&levels=administrativeArea1&roles=legislatorUpperBody&roles=legislatorLowerBody&roles=headOfGovernment&key=AIzaSyATRoCqZleGGxL9UHAJtqoyWhvhMxuD4lU`
     );
   },
 };
