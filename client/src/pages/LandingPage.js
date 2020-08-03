@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Background from "../components/Background";
 import imageLink from "../assets/images/background/flagbg.jpg";
@@ -8,12 +8,30 @@ import PageTitle from "../components/PageTitle";
 // import Card from "../components/Card"
 
 function LandingPage() {
-  // TESTING API CALLS
+  const [representatives, setReps] = useState({
+    senator: {},
+    rep1: {},
+    rep2: {},
+    governor: {},
+    stateSenator: {},
+    stateRep1: {},
+    stateRep2: {},
+  });
+
   useEffect(() => {
-    var address = "4800 Phinney Ave N Seattle WA 98103";
+    var address = "602 Congress Ave Pacific Grove CA 93950";
     API.getRepresentatives(address)
       .then((res) => {
         console.log(res);
+        setReps({
+          senator: res.data.officials[1],
+          rep1: res.data.officials[2],
+          rep2: res.data.officials[3],
+          governor: res.data.officials[4],
+          stateSenator: res.data.officials[5],
+          stateRep1: res.data.officials[6],
+          stateRep2: res.data.officials[7],
+        });
       })
       .catch((err) => {
         console.log(err);
