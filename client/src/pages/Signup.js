@@ -1,0 +1,17 @@
+import React from "react";
+import Nav from "../components/Nav";
+import Background from "../components/Background";
+import imageLink from "../assets/images/background/flagflowgirl.jpg";
+import SignUp from "../components/SignUp"
+
+
+function Signup (){
+    return(
+        <Background image = {imageLink}>
+            <Nav></Nav>
+            <SignUp></SignUp>
+        </Background>
+    )
+}
+
+export default Signup;
