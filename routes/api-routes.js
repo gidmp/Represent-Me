@@ -8,15 +8,16 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id,
+      _id: req.user._id,
 
     });
   });
 
 
-  app.post("/api/signup", (req, res) => {
-    const { username, password, email, location, zipcode } = req.body
-    
+  app.post("/api/signup", async (req, res, next) => {
+    const { username, password, email, location, zipcode } = req.body;
+
+    try {
       const newUser = new User({
         username: username,
         password: password,
@@ -24,12 +25,17 @@ module.exports = function (app) {
         location: location,
         zipcode: zipcode,
       });
-      const savedUser = newUser.save();
+      const savedUser = await newUser.save();
       if (savedUser) return res.redirect(307, "/api/login");
-      
-    
+      return next(new Error(`Failed to save user for unknown reasons`))
+
+    }catch(err) {
+      return next(err)
+    }
 
   });
+
+  
 
   // Route for logging user out
   app.get("/logout", (req, res) => {

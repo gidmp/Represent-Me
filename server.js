@@ -8,15 +8,11 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
-
-=
 const PORT = process.env.PORT || 3001;
-const app = express();
-
 
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
 app.use(express.static("public"));
 
 
@@ -53,10 +49,7 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
-);
+
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

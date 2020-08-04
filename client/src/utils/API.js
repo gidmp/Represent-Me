@@ -1,4 +1,5 @@
 import axios from "axios";
+//import { serialize } from "v8";
 require("dotenv").config();
 
 export default {
@@ -31,4 +32,5 @@ export default {
       `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&levels=administrativeArea1&roles=legislatorUpperBody&roles=legislatorLowerBody&roles=headOfGovernment&key=${process.env.REACT_APP_GOOGLE_CIVICS_API_KEY}`
     );
   },
+ 
 };
