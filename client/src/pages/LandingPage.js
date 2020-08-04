@@ -17,9 +17,15 @@ function LandingPage() {
     stateRep1: {},
     stateRep2: {},
   });
+  const [elections, setElections] = useState({
+    title: "",
+    date: "",
+    electionInfoURL: "",
+    pollingLocationsURL: "",
+  });
 
   useEffect(() => {
-    var address = "602 Congress Ave Pacific Grove CA 93950";
+    var address = "889 Upalu St Wailuku  HI  96793";
     API.getRepresentatives(address)
       .then((res) => {
         console.log(res);
@@ -31,6 +37,22 @@ function LandingPage() {
           stateSenator: res.data.officials[5],
           stateRep1: res.data.officials[6],
           stateRep2: res.data.officials[7],
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    API.getVoterInfo(address)
+      .then((res) => {
+        console.log(res);
+        setElections({
+          title: res.data.election.name,
+          date: res.data.election.electionDay,
+          electionInfoURL:
+            res.data.state[0].electionAdministrationBody.electionInfoUrl,
+          pollingLocationsURL:
+            res.data.state[0].electionAdministrationBody
+              .votingLocationFinderUrl,
         });
       })
       .catch((err) => {
