@@ -17,7 +17,7 @@ function Education(){
                     Check out the available information on this page to help you decide who best represents you to make informed decisions.
                 </p>
             </Section>
-            {/* <Section>
+            <Section>
                 <h3>Governors vs. Congress</h3>
                 <p>
                 Each state has one governor and two senators.
@@ -62,7 +62,7 @@ function Education(){
         
                     These are only the major and minor parties listed on most ballots in the US. This list is not exhastive- there are many other smaller parties that have been created when people feel that no other party represents them!
                 </p>
-            </Section> */}
+            </Section>
         </div>
     )
 }
