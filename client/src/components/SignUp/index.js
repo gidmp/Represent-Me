@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./style.css";
 import axios from "axios";
 
-
 class SignUp extends Component {
     constructor() {
         super()
@@ -12,7 +11,6 @@ class SignUp extends Component {
             email: '',
             location: '',
             zipcode: ''
-
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -20,7 +18,6 @@ class SignUp extends Component {
     handleChange(event) {
         let value = event.target.value;
         const name = event.target.name;
-    
         this.setState({
             [name]: value
         })
@@ -29,7 +26,6 @@ class SignUp extends Component {
         console.log('sign-up handleSubmit, username: ')
         console.log(this.state.username)
         event.preventDefault()
-
         //request to server to add a new username/password
         axios.post('/api/signup/', {
             username: this.state.username,
@@ -39,16 +35,13 @@ class SignUp extends Component {
             zipcode: this.state.zipcode
         })
             .then(response => {
-                
                 if (!response.data.errmsg) {
                     console.log('successful signup')
                     this.props.history.push("/Login")
                     }
-                
             }).catch(error => {
                 console.log('signup error: ')
                 console.log(error)
-
             })
     }
     render() {
@@ -92,5 +85,4 @@ class SignUp extends Component {
         )
     };
 }
-
 export default SignUp;

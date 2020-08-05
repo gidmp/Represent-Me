@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import MobileNavbar from "./components/MobileNavbar";
 // import SignUp from "./components/SignUp";
 
+
 function App() {
     return (
       <Router>
@@ -17,9 +18,11 @@ function App() {
         <Route exact path="/landingpage" component={LandingPage} />
         <Route path="/about" component={About} />
 
+
         <Route path="/education" component={Education} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+
 
         <MobileNavbar />
         <Footer />

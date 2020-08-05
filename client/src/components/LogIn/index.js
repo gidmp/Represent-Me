@@ -2,14 +2,12 @@ import React, {Component} from "react";
 import "./style.css";
 import axios from "axios";
 
-
     class LogIn extends Component {
         constructor() {
             super()
             this.state = {
                 email: '',
                 password: '',
-
             }
             this.handleSubmit = this.handleSubmit.bind(this)
             this.handleChange = this.handleChange.bind(this)
@@ -17,7 +15,6 @@ import axios from "axios";
         handleChange(event) {
             let value = event.target.value;
             const name = event.target.name;
-
             this.setState({
                 [name]: value
             })
@@ -26,25 +23,19 @@ import axios from "axios";
             console.log('log-in handleSubmit, username: ')
             console.log(this.state.username)
             event.preventDefault()
-
             //request to server to add a new username/password
             axios.post('/api/login/', {
-
                 email: this.state.email,
                 password: this.state.password,
-
             })
                 .then(response => {
-
                     if (!response.data.errmsg) {
                         console.log('successful login')
                         this.props.history.push("/landingPage")
                     }
-
                 }).catch(error => {
                     console.log('login error: ')
                     console.log(error)
-
                 })
         }
         render() {
@@ -70,6 +61,4 @@ import axios from "axios";
             );
         }
     }
-
-
         export default LogIn;
