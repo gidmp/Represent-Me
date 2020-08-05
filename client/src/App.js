@@ -5,15 +5,10 @@ import Education from "./pages/Education";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
-
-
-
 import Signup from "./pages/Signup";
-
 import Footer from "./components/Footer";
 import MobileNavbar from "./components/MobileNavbar";
-import SignUp from "./components/SignUp";
-import Login from "./components/LogIn";
+// import SignUp from "./components/SignUp";
 
 function App() {
     return (
