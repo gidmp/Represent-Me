@@ -3,23 +3,24 @@ import axios from "axios";
 require("dotenv").config();
 
 export default {
-  getLegislatorsCID: function (state) {
-    return axios.get(
-      `http://www.opensecrets.org/api/?method=getLegislators&id=${state}&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}&output=json`
-    );
-  },
+  // OPEN SECRET APIS - NOT CURRENTLY IN USEs
+  // getLegislatorsCID: function (state) {
+  //   return axios.get(
+  //     `http://www.opensecrets.org/api/?method=getLegislators&id=${state}&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}&output=json`
+  //   );
+  // },
 
-  getCandContrib: function (CID) {
-    return axios.get(
-      `https://www.opensecrets.org/api/?method=candContrib&cid=${CID}&cycle=2020&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}`
-    );
-  },
+  // getCandContrib: function (CID) {
+  //   return axios.get(
+  //     `https://www.opensecrets.org/api/?method=candContrib&cid=${CID}&cycle=2020&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}`
+  //   );
+  // },
 
-  getCandIndustry: function (CID) {
-    return axios.get(
-      `https://www.opensecrets.org/api/?method=candIndustry&cid=${CID}&cycle=2020&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}`
-    );
-  },
+  // getCandIndustry: function (CID) {
+  //   return axios.get(
+  //     `https://www.opensecrets.org/api/?method=candIndustry&cid=${CID}&cycle=2020&apikey=${process.env.REACT_APP_OPENSECRET_API_KEY}`
+  //   );
+  // },
 
   getVoterInfo: function (address) {
     return axios.get(
