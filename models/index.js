@@ -43,15 +43,25 @@ const UserSchema = new Schema({
     timestamps: true
 
 });
-UserSchema.methods.validPassword = function validatePassword(candidate) {
+UserSchema.methods.comparePassword = function comparePassword(candidate) {
     return bcrypt.compare(candidate, this.password);
 }
 
-UserSchema.pre('save', function presSave(next) {
+UserSchema.pre('save', async function presSave(next) {
+    
     const user = this;
-    const hash = bcrypt.hash(user.password, SALT_ROUNDS);
-    user.password = hash;
-    next();
+    try {   
+        const hash = await bcrypt.hash(user.password, SALT_ROUNDS);
+        user.password = hash;
+        return next();
+    }catch(err) {
+        return (res.send(err))
+
+    }
+    
+     
+    
+   
 })
 module.exports = mongoose.model("User", UserSchema);
 
