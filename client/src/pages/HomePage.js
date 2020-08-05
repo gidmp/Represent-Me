@@ -12,7 +12,6 @@ function LandingPage() {
     <VideoBackground video={videoLink}>
         <Nav />
         <HomeTitle />
-
     </VideoBackground>
   );
 }

@@ -1,22 +1,24 @@
 import React from "react";
 import Nav from "../components/Nav";
-import TextArea from "../components/TextArea";
+import Section from "../components/Section";
 import Background from "../components/Background";
+import imageLink from "../assets/images/background/buttonsandflags.jpg";
 
 
 function Education(){
     return(
-        <Background>
-            <Nav />
-            <TextArea>
-                <h3 class="uk-card-title">What's the Difference?</h3>
+        <div>
+        <Nav />
+        <Background image = {imageLink}></Background>
+            <Section>
+                <h3>What's the Difference?</h3>
                 <p>
                     Unsure of the differences between Governor and Senator? Between Democrats and Republicans? Do you know there are more than two parties you can vote for?
                     Check out the available information on this page to help you decide who best represents you to make informed decisions.
                 </p>
-            </TextArea>
-            <TextArea>
-                <h3 class="uk-card-title">Governors vs. Congress</h3>
+            </Section>
+            {/* <Section>
+                <h3>Governors vs. Congress</h3>
                 <p>
                 Each state has one governor and two senators.
                 These two senators are part of congress, which is split into two parts- the Senate and the House of Representatives.
@@ -47,9 +49,9 @@ function Education(){
                 For example, smaller states like Vermont 1 representative while medium states like Michigan have 14 and large states like California have 53.
                 These representatives serve 2 year terms.
                 </p>
-            </TextArea>
-            <TextArea>
-                <h3 class="uk-card-title">There's a Party for Everybody</h3>
+            </Section>
+            <Section>
+                <h3>There's a Party for Everybody</h3>
                 <p>
                     Democrat:
                     Republican:
@@ -58,13 +60,10 @@ function Education(){
                     Green:
                     Constitution:
         
-                    These are only the major and minor parties listed on many ballots in the US. This list is not exhastive- there are many smaller parties that have been created when people feel that no other party represents them!
+                    These are only the major and minor parties listed on most ballots in the US. This list is not exhastive- there are many other smaller parties that have been created when people feel that no other party represents them!
                 </p>
-            </TextArea>
-            <TextArea>
-                <h3 class="uk-card-title">Electoral College</h3>
-            </TextArea>
-        </Background>
+            </Section> */}
+        </div>
     )
 }
 
