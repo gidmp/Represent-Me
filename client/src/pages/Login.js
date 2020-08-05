@@ -8,8 +8,8 @@ import LogIn from "../components/LogIn";
 function Login (){
     return(
         <Background image = {imageLink}>
-            <Nav></Nav>
-            <LogIn></LogIn>
+            <Nav />
+            <LogIn />
         </Background>
     )
 }
