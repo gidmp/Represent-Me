@@ -40,7 +40,7 @@ import axios from "axios";
         }
         render() {
             return (
-                <div className="uk-container uk-container-xsmall">
+                <div className="uk-container uk-overlay-default">
                     <form className="uk-form-stacked">
                         <div className="uk-margin">
                             <label className="uk-form-label" htmlFor="form-stacked-text">Email</label>
