@@ -8,8 +8,8 @@ import SignUp from "../components/SignUp"
 function Signup (){
     return(
         <Background image = {imageLink}>
-            <Nav></Nav>
-            <SignUp></SignUp>
+            <Nav />
+            <SignUp />
         </Background>
     )
 }

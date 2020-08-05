@@ -9,8 +9,8 @@ import LandingPage from "./pages/LandingPage";
 
 import Footer from "./components/Footer";
 import MobileNavbar from "./components/MobileNavbar";
-import SignUp from "./components/SignUp";
-import Login from "./components/LogIn";
+import SignUp from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
     return (
