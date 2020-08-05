@@ -1,8 +1,9 @@
 import React from "react";
+import "./style.css";
 
-function Section(props) {
+function Section2(props) {
     return (
-        <div class="uk-section">
+        <div class="uk-section section-2">
             <div class="uk-container">
                 <div class="uk-grid-match uk-child-width-1@m" uk-grid>
                     {props.children}
@@ -12,4 +13,4 @@ function Section(props) {
     )
 }
 
-export default Section
+export default Section2
