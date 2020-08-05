@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
 function HomeTitle(){
+    const location = useLocation();
     return(
         <div className="uk-text-center home-title">
 
