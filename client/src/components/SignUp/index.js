@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import axios from "axios";
+import axios from "axios"; 
 
 class SignUp extends Component {
     constructor() {
@@ -46,7 +46,7 @@ class SignUp extends Component {
     }
     render() {
         return (
-            <div className="uk-container uk-container-xsmall" >
+            <div className="uk-container uk-overlay-default" >
                 <form className="uk-form-stacked">
                     <div className="uk-margin">
                         <label className="uk-form-label" htmlFor="form-stacked-text">Username</label>
@@ -69,7 +69,7 @@ class SignUp extends Component {
                     <div className="uk-margin">
                         <label className="uk-form-label" htmlFor="form-stacked-text">Address</label>
                         <div className="uk-form-controls">
-                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="State" name = "location"value={this.state.location} onChange={this.handleChange} />
+                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="Address" name = "location"value={this.state.location} onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="uk-margin">
@@ -81,7 +81,7 @@ class SignUp extends Component {
                     <div className="uk-margin">
                         <label className="uk-form-label" htmlFor="form-stacked-text">Zipcode</label>
                         <div className="uk-form-controls">
-                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="zipcode" name = "zipcode" value={this.state.zipcode} onChange={this.handleChange} />
+                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="Zipcode" name = "zipcode" value={this.state.zipcode} onChange={this.handleChange} />
                         </div>
                     </div>
                     <button className="uk-button uk-button-primary" onClick={this.handleSubmit}
