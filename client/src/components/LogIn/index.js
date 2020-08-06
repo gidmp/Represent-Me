@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
 import "./style.css";
 import axios from "axios";
 
@@ -61,4 +62,4 @@ import axios from "axios";
             );
         }
     }
-        export default LogIn;
+        export default withRouter(LogIn);
