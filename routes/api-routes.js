@@ -15,13 +15,14 @@ module.exports = function (app) {
 
 
   app.post("/api/signup", async (req, res, next) => {
-    const { username, password, email, location, zipcode } = req.body;
+    const { username, password, email, address, location, zipcode } = req.body;
 
     try {
       const newUser = new User({
         username: username,
         password: password,
         email: email,
+        address: address,
         location: location,
         zipcode: zipcode,
       });

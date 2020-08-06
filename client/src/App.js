@@ -8,11 +8,8 @@ import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import MobileNavbar from "./components/MobileNavbar";
-<<<<<<< HEAD
 // import SignUp from "./components/SignUp";
 
-=======
->>>>>>> 57cb73ed50281cca50a58aec03df72fb38588469
 
 function App() {
     return (
