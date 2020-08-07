@@ -5,11 +5,11 @@ import imageLink from "../assets/images/background/flagbg.jpg";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
-import Card from "../components/Card"
+import Card from "../components/Card";
 
 function LandingPage() {
   const [representatives, setReps] = useState({
-    officials : []
+    officials: [],
   });
   const [elections, setElections] = useState({
     title: "",
@@ -17,15 +17,17 @@ function LandingPage() {
     electionInfoURL: "",
     pollingLocationsURL: "",
   });
-  const [news, setNews] = useState();
+  const [news, setNews] = useState({
+    articles: [],
+  });
 
   useEffect(() => {
-    var address = "10721 Meridian Ave N, Seattle, WA, 98133";
+    var address = "871 Haunani Pl Wailuku Hawaii";
     var state = "California";
     API.getRepresentatives(address)
       .then((res) => {
         setReps({
-          officials: res.data.officials
+          officials: res.data.officials,
         });
       })
       .catch((err) => {
@@ -49,8 +51,10 @@ function LandingPage() {
       });
     API.getNews(state)
       .then((res) => {
-        const newsArr = res.data.articles;
-        setNews(newsArr);
+        console.log(res);
+        setNews({
+          articles: res.data.articles,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -66,27 +70,26 @@ function LandingPage() {
         paddingTop={140}
         paddingBottom={70}
       />
-        <CardContainer>
-            {console.log("hi")}
-            {console.log(representatives.officials)}
-            {representatives.officials.slice(1).map((i, id) => {
-                const title = ["U.S. Senator","U.S.Senator","U.S. Representative","Governor","State Senator","State Representative", "State Representative"]
-                console.log(id)
-                return(
-                    <Card 
-                        title = {
-                            title[id]
-                        }
-                        image = {i.photoUrl}
-                        name = {i.name}
-                        key = {id}
-                    />
-                )
-            })}
-        </CardContainer>
-
+      <CardContainer>
+        {console.log(representatives.officials)}
+        {representatives.officials.slice(1).map((i, id) => {
+          const title = [
+            "U.S. Senator",
+            "U.S.Senator",
+            "U.S. Representative",
+            "Governor",
+            "State Senator",
+            "State Representative",
+            "State Representative",
+          ];
+          console.log(id);
+          return (
+            <Card title={title[id]} image={i.photoUrl} name={i.name} key={id} />
+          );
+        })}
+      </CardContainer>
     </Background>
-  );;
+  );
 }
 
 export default LandingPage;
