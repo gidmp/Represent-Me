@@ -5,7 +5,7 @@ import imageLink from "../assets/images/background/flagbg.jpg";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
-// import Card from "../components/Card"
+import Card from "../components/Card"
 
 function LandingPage() {
   const [representatives, setReps] = useState({
@@ -69,9 +69,21 @@ function LandingPage() {
         paddingTop={140}
         paddingBottom={70}
       />
-      <CardContainer></CardContainer>
+        <CardContainer>
+            {/* <Card 
+                name = {representatives.senator.name}
+            /> */}
+            {Object.keys(representatives).map((i, id) => (
+                <Card 
+                    image = {i.photoUrl}
+                    name = {i.name}
+                    key = {id}
+                />
+            ))}
+        </CardContainer>
+
     </Background>
-  );
+  );;
 }
 
 export default LandingPage;
