@@ -5,17 +5,11 @@ import imageLink from "../assets/images/background/flagbg.jpg";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
-// import Card from "../components/Card"
+import Card from "../components/Card"
 
 function LandingPage() {
   const [representatives, setReps] = useState({
-    senator: {},
-    rep1: {},
-    rep2: {},
-    governor: {},
-    stateSenator: {},
-    stateRep1: {},
-    stateRep2: {},
+    officials : []
   });
   const [elections, setElections] = useState({
     title: "",
@@ -26,19 +20,12 @@ function LandingPage() {
   const [news, setNews] = useState();
 
   useEffect(() => {
-    var address = "89 Nene St Hilo Hawaii 96720";
+    var address = "10721 Meridian Ave N, Seattle, WA, 98133";
     var state = "California";
     API.getRepresentatives(address)
       .then((res) => {
-        console.log(res);
         setReps({
-          senator: res.data.officials[1],
-          rep1: res.data.officials[2],
-          rep2: res.data.officials[3],
-          governor: res.data.officials[4],
-          stateSenator: res.data.officials[5],
-          stateRep1: res.data.officials[6],
-          stateRep2: res.data.officials[7],
+          officials: res.data.officials
         });
       })
       .catch((err) => {
@@ -62,9 +49,7 @@ function LandingPage() {
       });
     API.getNews(state)
       .then((res) => {
-        console.log(res);
         const newsArr = res.data.articles;
-        console.log(newsArr);
         setNews(newsArr);
       })
       .catch((err) => {
@@ -81,9 +66,27 @@ function LandingPage() {
         paddingTop={140}
         paddingBottom={70}
       />
-      <CardContainer></CardContainer>
+        <CardContainer>
+            {console.log("hi")}
+            {console.log(representatives.officials)}
+            {representatives.officials.slice(1).map((i, id) => {
+                const title = ["U.S. Senator","U.S.Senator","U.S. Representative","Governor","State Senator","State Representative", "State Representative"]
+                console.log(id)
+                return(
+                    <Card 
+                        title = {
+                            title[id]
+                        }
+                        image = {i.photoUrl}
+                        name = {i.name}
+                        key = {id}
+                    />
+                )
+            })}
+        </CardContainer>
+
     </Background>
-  );
+  );;
 }
 
 export default LandingPage;
