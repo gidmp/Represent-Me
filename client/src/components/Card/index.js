@@ -7,6 +7,7 @@ function Card(props){
     <div className="item-card">
         <div className="uk-card uk-card-default">
             <div className="uk-card-media-top">
+                <h2>{props.title}</h2>
                 <img src={props.image} alt={props.name} />
             </div>
             <div className="uk-card-body">
