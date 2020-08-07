@@ -4,7 +4,13 @@ placeholder for now
 ## Presentation Link
 placeholder for now
 ## Description
-placeholder for now
+Bored? LEARN SOMETHING!
+
+TinyLearn serves you one random subject to learn about a day. You can save your learns to keep on learnin' at a later time. With all the extra time we have nowadays, we hope TinyLearn can help make a big impact in your day.
+
+This app uses MVC which includes a model, handlebars and a connection. Passport is used to make sure the user is logged in and can access certain pages associated with their account.
+
+It uses sequelize to create a database and a seeder file for some pre-fed information.
 ## Table of Contents
 * [Installation](#installation)
 
