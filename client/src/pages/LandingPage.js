@@ -85,7 +85,7 @@ function LandingPage() {
             {/* <Card 
                 name = {representatives.senator.name}
             /> */}
-            {Object.keys(representatives).map((i, id) => (
+            {Object.entries(representatives).map((i, id) => (
                 <Card 
                     image = {i.photoUrl}
                     name = {i.name}
