@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {withRouter} from "react-router-dom";
 import "./style.css";
 import axios from "axios"; 
 
@@ -9,6 +10,7 @@ class SignUp extends Component {
             username: '',
             password: '',
             email: '',
+            address: '',
             location: '',
             zipcode: ''
         }
@@ -31,13 +33,14 @@ class SignUp extends Component {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password,
+            address: this.state.address,
             location: this.state.location,
             zipcode: this.state.zipcode
         })
             .then(response => {
                 if (!response.data.errmsg) {
                     console.log('successful signup')
-                    this.props.history.push("/Login")
+                    this.props.history.push("/login")
                     }
             }).catch(error => {
                 console.log('signup error: ')
@@ -69,7 +72,7 @@ class SignUp extends Component {
                     <div className="uk-margin">
                         <label className="uk-form-label" htmlFor="form-stacked-text">Address</label>
                         <div className="uk-form-controls">
-                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="Address" name = "location"value={this.state.location} onChange={this.handleChange} />
+                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="Address" name = "address"value={this.state.address} onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="uk-margin">
@@ -91,4 +94,4 @@ class SignUp extends Component {
         )
     };
 }
-export default SignUp;
+export default withRouter(SignUp);

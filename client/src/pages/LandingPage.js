@@ -23,9 +23,11 @@ function LandingPage() {
     electionInfoURL: "",
     pollingLocationsURL: "",
   });
+  const [news, setNews] = useState();
 
   useEffect(() => {
-    var address = "889 Upalu St Wailuku  HI  96793";
+    var address = "89 Nene St Hilo Hawaii 96720";
+    var state = "California";
     API.getRepresentatives(address)
       .then((res) => {
         console.log(res);
@@ -54,6 +56,16 @@ function LandingPage() {
             res.data.state[0].electionAdministrationBody
               .votingLocationFinderUrl,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    API.getNews(state)
+      .then((res) => {
+        console.log(res);
+        const newsArr = res.data.articles;
+        console.log(newsArr);
+        setNews(newsArr);
       })
       .catch((err) => {
         console.log(err);
