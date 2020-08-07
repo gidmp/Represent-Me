@@ -35,7 +35,6 @@ function LandingPage() {
       });
     API.getVoterInfo(address)
       .then((res) => {
-        console.log(res);
         setElections({
           title: res.data.election.name,
           date: res.data.election.electionDay,
@@ -51,7 +50,6 @@ function LandingPage() {
       });
     API.getNews(state)
       .then((res) => {
-        console.log(res);
         setNews({
           articles: res.data.articles,
         });
@@ -71,18 +69,17 @@ function LandingPage() {
         paddingBottom={70}
       />
       <CardContainer>
-        {console.log(representatives.officials)}
         {representatives.officials.slice(1).map((i, id) => {
           const title = [
             "U.S. Senator",
-            "U.S.Senator",
+            "U.S. Senator",
             "U.S. Representative",
             "Governor",
             "State Senator",
             "State Representative",
             "State Representative",
           ];
-          console.log(id);
+
           return (
             <Card title={title[id]} image={i.photoUrl} name={i.name} key={id} />
           );
