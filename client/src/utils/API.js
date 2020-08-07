@@ -22,6 +22,13 @@ export default {
   //   );
   // },
 
+  getNews: function (state) {
+    return axios.get(
+      `https://gnews.io/api/v3/search?q=${state} state election&image=required&country=us&token=${process.env.REACT_APP_GNEWS_API_KEY}
+      `
+    );
+  },
+
   getVoterInfo: function (address) {
     return axios.get(
       `https://civicinfo.googleapis.com/civicinfo/v2/voterinfo?address=${address}&returnAllAvailableData=true&key=${process.env.REACT_APP_GOOGLE_CIVICS_API_KEY}`
@@ -33,5 +40,4 @@ export default {
       `https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&levels=administrativeArea1&roles=legislatorUpperBody&roles=legislatorLowerBody&roles=headOfGovernment&key=${process.env.REACT_APP_GOOGLE_CIVICS_API_KEY}`
     );
   },
- 
 };
