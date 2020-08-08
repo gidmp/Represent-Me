@@ -5,7 +5,8 @@ import imageLink from "../assets/images/background/flagbg.jpg";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
-import Card from "../components/Card";
+import Card from "../components/Card"
+import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg"
 
 function LandingPage() {
   const [representatives, setReps] = useState({
@@ -68,24 +69,31 @@ function LandingPage() {
         paddingTop={140}
         paddingBottom={70}
       />
-      <CardContainer>
-        {representatives.officials.slice(1).map((i, id) => {
-          const title = [
-            "U.S. Senator",
-            "U.S. Senator",
-            "U.S. Representative",
-            "Governor",
-            "State Senator",
-            "State Representative",
-            "State Representative",
-          ];
+        <CardContainer>
+            {representatives.officials.slice(1).map((i, id) => {
+                const title = [
+                  "U.S. Senator",
+                  "U.S. Senator",
+                  "U.S. Representative",
+                  "Governor","State Senator",
+                  "State Representative", 
+                  "State Representative"
+                ]
+                const photoUrl = i.photoUrl
+                return(
+                    <Card 
+                        title = {
+                            title[id]
+                        }
+                        image = {(photoUrl) ? photoUrl: placeholderPerson}
+                        name = {i.name}
+                        key = {id}
+                    />
+                )
+            })}
+        </CardContainer>
+      </Background>
 
-          return (
-            <Card title={title[id]} image={i.photoUrl} name={i.name} key={id} />
-          );
-        })}
-      </CardContainer>
-    </Background>
   );
 }
 
