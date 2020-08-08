@@ -3,16 +3,13 @@ const User = require("../models/index");
 const passport = require("../config/passport");
 
 module.exports = function (app) {
-
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
       _id: req.user._id,
-
     });
   });
-
 
   app.post("/api/signup", async (req, res, next) => {
     const { username, password, email, address, location, zipcode } = req.body;
@@ -28,15 +25,11 @@ module.exports = function (app) {
       });
       const savedUser = await newUser.save();
       if (savedUser) return res.redirect(307, "/api/login");
-      return next(new Error(`Failed to save user for unknown reasons`))
-
-    }catch(err) {
-      return next(err)
+      return next(new Error(`Failed to save user for unknown reasons`));
+    } catch (err) {
+      return next(err);
     }
-
   });
-
-  
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -54,7 +47,10 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        _id: req.user._id,
+        address: req.user.address,
+        state: req.user.location,
+        zipcode: req.user.zipcode,
       });
     }
   });
