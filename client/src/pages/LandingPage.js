@@ -71,26 +71,29 @@ function LandingPage() {
       />
         <CardContainer>
             {representatives.officials.slice(1).map((i, id) => {
-                const title = [
-                  "U.S. Senator",
-                  "U.S. Senator",
-                  "U.S. Representative",
-                  "Governor","State Senator",
-                  "State Representative", 
-                  "State Representative"
-                ]
-                const photoUrl = i.photoUrl
-                return(
-                    <Card 
-                        title = {
-                            title[id]
-                        }
-                        image = {(photoUrl) ? photoUrl: placeholderPerson}
-                        name = {i.name}
-                        key = {id}
-                    />
-                )
-            })}
+              {console.log(representatives.officials)}
+              const title = [
+                "U.S. Senator",
+                "U.S. Senator",
+                "U.S. Representative",
+                "Governor",
+                "State Senator",
+                "State Representative", 
+                "State Representative"
+              ]
+              const photoUrl = i.photoUrl
+              return(
+                  <Card 
+                      title = {
+                          title[id]
+                      }
+                      image = {(photoUrl) ? photoUrl: placeholderPerson}
+                      name = {i.name}
+                      url = {i.urls}
+                      key = {id}
+                  />
+              )
+          })}
         </CardContainer>
       </Background>
 
