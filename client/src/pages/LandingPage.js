@@ -6,6 +6,7 @@ import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
 import Card from "../components/Card"
+import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg"
 
 function LandingPage() {
   const [representatives, setReps] = useState({
@@ -71,13 +72,14 @@ function LandingPage() {
             {console.log(representatives.officials)}
             {representatives.officials.slice(1).map((i, id) => {
                 const title = ["U.S. Senator","U.S.Senator","U.S. Representative","Governor","State Senator","State Representative", "State Representative"]
+                const photoUrl = i.photoUrl
                 console.log(id)
                 return(
                     <Card 
                         title = {
                             title[id]
                         }
-                        image = {i.photoUrl}
+                        image = {(photoUrl) ? photoUrl: placeholderPerson}
                         name = {i.name}
                         key = {id}
                     />
