@@ -10,7 +10,7 @@ import placeholderPerson from "../assets/images/placeholder/placeholder-person.j
 
 function LandingPage() {
   const [representatives, setReps] = useState({
-    officials : []
+    officials: [],
   });
   const [elections, setElections] = useState({
     title: "",
@@ -18,15 +18,17 @@ function LandingPage() {
     electionInfoURL: "",
     pollingLocationsURL: "",
   });
-  const [news, setNews] = useState();
+  const [news, setNews] = useState({
+    articles: [],
+  });
 
   useEffect(() => {
-    var address = "10721 Meridian Ave N, Seattle, WA, 98133";
+    var address = "871 Haunani Pl Wailuku Hawaii";
     var state = "California";
     API.getRepresentatives(address)
       .then((res) => {
         setReps({
-          officials: res.data.officials
+          officials: res.data.officials,
         });
       })
       .catch((err) => {
@@ -34,7 +36,6 @@ function LandingPage() {
       });
     API.getVoterInfo(address)
       .then((res) => {
-        console.log(res);
         setElections({
           title: res.data.election.name,
           date: res.data.election.electionDay,
@@ -50,8 +51,9 @@ function LandingPage() {
       });
     API.getNews(state)
       .then((res) => {
-        const newsArr = res.data.articles;
-        setNews(newsArr);
+        setNews({
+          articles: res.data.articles,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -68,12 +70,16 @@ function LandingPage() {
         paddingBottom={70}
       />
         <CardContainer>
-            {console.log("hi")}
-            {console.log(representatives.officials)}
             {representatives.officials.slice(1).map((i, id) => {
-                const title = ["U.S. Senator","U.S.Senator","U.S. Representative","Governor","State Senator","State Representative", "State Representative"]
+                const title = [
+                  "U.S. Senator",
+                  "U.S. Senator",
+                  "U.S. Representative",
+                  "Governor","State Senator",
+                  "State Representative", 
+                  "State Representative"
+                ]
                 const photoUrl = i.photoUrl
-                console.log(id)
                 return(
                     <Card 
                         title = {
@@ -86,9 +92,9 @@ function LandingPage() {
                 )
             })}
         </CardContainer>
+      </Background>
 
-    </Background>
-  );;
+  );
 }
 
 export default LandingPage;
