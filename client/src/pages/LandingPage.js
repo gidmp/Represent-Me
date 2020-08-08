@@ -5,8 +5,9 @@ import imageLink from "../assets/images/background/flagbg.jpg";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
-import Card from "../components/Card"
-import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg"
+import Card from "../components/Card";
+import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
+import axios from "axios";
 
 function LandingPage() {
   const [representatives, setReps] = useState({
@@ -21,10 +22,32 @@ function LandingPage() {
   const [news, setNews] = useState({
     articles: [],
   });
+  const [currentUser, setCurrentUser] = useState({
+    email: "",
+    address: "",
+    state: "",
+    zipcode: "",
+  });
 
   useEffect(() => {
-    var address = "871 Haunani Pl Wailuku Hawaii";
-    var state = "California";
+    axios
+      .get("/api/user_data")
+      .then((res) => {
+        setCurrentUser({
+          email: res.data.email,
+          address: res.data.address,
+          state: res.data.state,
+          zipcode: res.data.zipcode,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
         setReps({
@@ -58,8 +81,8 @@ function LandingPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  // END TESTING API CALLS
+  }, [currentUser]);
+
   return (
     <Background image={imageLink}>
       <Nav />
