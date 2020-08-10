@@ -55,9 +55,10 @@ function Card(props){
                         <li>
                             <div className="uk-text-center uk-text-middle">
                                 <h5 className = "rep-url">{props.url}</h5>
-                                <a uk-icon="icon: twitter ; ratio: 1.5" className="contact-icon contact-link-icon" href={props.twitter} target="_blank"></a>
+                                {/* <a uk-icon="icon: twitter ; ratio: 1.5" className="contact-icon contact-link-icon" href={props.twitter} target="_blank"></a>
                                 <a uk-icon="icon: youtube ; ratio: 1.5" className="contact-icon contact-link-icon" href={props.youtube} target="_blank"></a>
-                                <a uk-icon="icon: facebook ; ratio: 1.5" className="contact-icon contact-link-icon" href={props.facebook} target="_blank"></a>
+                                <a uk-icon="icon: facebook ; ratio: 1.5" className="contact-icon contact-link-icon" href={props.facebook} target="_blank"></a> */}
+                                {props.children}
                             </div>
                         </li>
                     </ul>

@@ -47,6 +47,8 @@ function LandingPage() {
 
   useEffect(() => {
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    //temp address
+    address = "10721 meridian ave N, Seattle, WA 98133"
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
@@ -94,7 +96,7 @@ function LandingPage() {
       />
         <CardContainer>
             {representatives.officials.slice(1).map((i, id) => {
-              {console.log(representatives.officials)}
+              console.log(representatives.officials)
               const title = [
                 "U.S. Senator",
                 "U.S. Senator",
@@ -104,7 +106,10 @@ function LandingPage() {
                 "State Representative", 
                 "State Representative"
               ]
-              const photoUrl = i.photoUrl
+              const photoUrl = i.photoUrl;
+              const socialArr = i.channels;
+              console.log(socialArr)
+              
               return(
                   <Card 
                       title = {
@@ -114,7 +119,15 @@ function LandingPage() {
                       name = {i.name}
                       url = {i.urls}
                       key = {id}
-                  />
+                  >
+                    {/* {socialArr.map((item) => {
+                      if(item.type) {
+                        return (
+                          `<a uk-icon="icon: ${item.type.toLowerCase()} ; ratio: 1.5" className="contact-icon contact-link-icon" href={props.twitter} target="_blank"></a>`
+                        )
+                      }
+                    })} */}
+                  </Card>
               )
           })}
         </CardContainer>
