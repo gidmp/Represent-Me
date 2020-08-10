@@ -3,12 +3,21 @@ const User = require("../models/index");
 const passport = require("../config/passport");
 
 module.exports = function (app) {
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      _id: req.user._id,
-    });
+  app.post("/api/login", (req, res, next) => {
+    passport.authenticate("local", function (err, user, info) {
+      if (err) {
+        return res.status(400).json({ errors: err });
+      }
+      if (!user) {
+        return res.status(401).json({ errors: "No user found" });
+      }
+      req.logIn(user, function (err) {
+        if (err) {
+          return res.status(400).json({ errors: err });
+        }
+        return res.status(200).json({ success: `logged in ${user.id}` });
+      });
+    })(req, res, next);
   });
 
   app.post("/api/signup", async (req, res, next) => {
