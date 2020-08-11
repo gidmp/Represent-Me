@@ -60,13 +60,13 @@ class SignUp extends Component {
                     <div className="uk-margin">
                         <label className="uk-form-label" htmlFor="form-stacked-text">Email</label>
                         <div className="uk-form-controls">
-                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="Email" name = "email"value={this.state.email} onChange={this.handleChange} />
+                            <input className="uk-input" id="form-stacked-text" type="email" placeholder="Email" name = "email"value={this.state.email} onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="uk-margin">
                         <label className="uk-form-label" htmlFor="form-stacked-text">Password</label>
-                        <div className="uk-form-controls">
-                            <input className="uk-input" id="form-stacked-text" type="text" placeholder="Password" name = "password"value={this.state.password} onChange={this.handleChange} />
+                        <div className="uk-form-controls uk-form-password">
+                            <input className="uk-input" id="form-stacked-text" type="password" placeholder="Password" name = "password"value={this.state.password} onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="uk-margin">
