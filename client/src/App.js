@@ -30,7 +30,7 @@ function App() {
 
   return (
     <Router>
-      <Switch>
+      {/* <Switch>
         <Route component={About} />
         <UnauthenticatedRoute
           path="/login"
@@ -43,12 +43,17 @@ function App() {
           appProps={{ isAuthenticated }}
         />
         <Route component={Login} />
+<<<<<<< HEAD
       </Switch>
+=======
+      </Switch> */}
+>>>>>>> 2afc9b652d9324bb4c93f446ff2e6727a573f3b7
       <Route exact path="/" component={HomePage} />
       <Route path="/about" component={About} />
       <Route path="/education" component={Education} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/landingPage" component={LandingPage} />
 
       <MobileNavbar />
       <Footer />
