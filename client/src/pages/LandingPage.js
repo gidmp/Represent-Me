@@ -6,6 +6,7 @@ import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
 import Card from "../components/Card";
+import LoginMessage from "../components/LoginMessage";
 import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
 import axios from "axios";
 
@@ -87,16 +88,11 @@ function LandingPage() {
     <Background image={imageLink}>
       <Nav />
       {representatives.officials.length === 0 ? (
-        <PageTitle
-          title="You are not logged in"
-          description="Click here to log in"
-          paddingTop={140}
-          paddingBottom={70}
-        />
+        <LoginMessage />
       ) : (
         <PageTitle
-          title="These are your representatives"
-          description="These are your representatives"
+          title="Your Representatives"
+          description="These are your elected representatives at both the state and federal level."
           paddingTop={140}
           paddingBottom={70}
         />
