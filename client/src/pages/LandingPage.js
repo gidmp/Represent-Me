@@ -86,12 +86,21 @@ function LandingPage() {
   return (
     <Background image={imageLink}>
       <Nav />
-      <PageTitle
-        title="Your representatives"
-        description="These are your representatives"
-        paddingTop={140}
-        paddingBottom={70}
-      />
+      {representatives.officials.length === 0 ? (
+        <PageTitle
+          title="You are not logged in"
+          description="Click here to log in"
+          paddingTop={140}
+          paddingBottom={70}
+        />
+      ) : (
+        <PageTitle
+          title="These are your representatives"
+          description="These are your representatives"
+          paddingTop={140}
+          paddingBottom={70}
+        />
+      )}
       <CardContainer>
         {representatives.officials.slice(1).map((i, id) => {
           const title = [
