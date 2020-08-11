@@ -55,7 +55,7 @@ class LogIn extends Component {
               <input
                 className="uk-input"
                 id="form-stacked-text"
-                type="text"
+                type="email"
                 placeholder="Email"
                 name="email"
                 value={this.state.email}
@@ -63,7 +63,7 @@ class LogIn extends Component {
               />
             </div>
           </div>
-          <div className="uk-margin">
+          <div className="uk-margin uk-form-password">
             <label className="uk-form-label" htmlFor="form-stacked-text">
               Password
             </label>
@@ -71,7 +71,7 @@ class LogIn extends Component {
               <input
                 className="uk-input"
                 id="form-stacked-text"
-                type="text"
+                type="password"
                 placeholder="Password"
                 name="password"
                 value={this.state.password}
