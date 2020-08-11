@@ -1,8 +1,8 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Background from "../components/Background";
-import imageLink from "../assets/images/background/flagbg.jpg";
-import Section from "../components/Section1";
+import imageLink from "../assets/images/background/votesign.jpg";
+import Section from "../components/Section";
 
 
 function About() {

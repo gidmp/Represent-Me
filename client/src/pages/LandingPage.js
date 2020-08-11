@@ -7,6 +7,7 @@ import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
 import Card from "../components/Card";
 import SocialMedia from "../components/SocialMedia";
+import LoginMessage from "../components/LoginMessage";
 import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
 import axios from "axios";
 
@@ -89,29 +90,32 @@ function LandingPage() {
   return (
     <Background image={imageLink}>
       <Nav />
-      <PageTitle
-        title="Your representatives"
-        description="These are your representatives"
-        paddingTop={140}
-        paddingBottom={70}
-      />
-        <CardContainer>
-            {representatives.officials.slice(1).map((i, id) => {
-              console.log(representatives.officials)
-              const title = [
-                "U.S. Senator",
-                "U.S. Senator",
-                "U.S. Representative",
-                "Governor",
-                "State Senator",
-                "State Representative", 
-                "State Representative"
-              ]
-              const photoUrl = i.photoUrl;
-              const socialArr = i.channels;
-              console.log(socialArr)
-              
-              return(
+      {representatives.officials.length === 0 ? (
+        <LoginMessage />
+      ) : (
+        <PageTitle
+          title="Your Representatives"
+          description="These are your elected representatives at both the state and federal level."
+          paddingTop={140}
+          paddingBottom={70}
+        />
+      )}
+      <CardContainer>
+        {representatives.officials.slice(1).map((i, id) => {
+          const title = [
+            "U.S. Senator",
+            "U.S. Senator",
+            "U.S. Representative",
+            "Governor",
+            "State Senator",
+            "State Representative",
+            "State Representative",
+          ];
+          const photoUrl = i.photoUrl;
+          const socialArr = i.channels;
+          console.log(socialArr)
+
+          return (
                   <Card 
                       title = {
                           title[id]
@@ -137,9 +141,9 @@ function LandingPage() {
               )
           })}
         </CardContainer>
-      </Background>
-
-  );
+      </Background>  );
 }
 
 export default LandingPage;
+
+
