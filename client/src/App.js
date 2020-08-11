@@ -43,11 +43,7 @@ function App() {
           appProps={{ isAuthenticated }}
         />
         <Route component={Login} />
-<<<<<<< HEAD
-      </Switch>
-=======
       </Switch> */}
->>>>>>> 2afc9b652d9324bb4c93f446ff2e6727a573f3b7
       <Route exact path="/" component={HomePage} />
       <Route path="/about" component={About} />
       <Route path="/education" component={Education} />
