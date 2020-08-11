@@ -23,6 +23,7 @@
 .slide-btn{
     top: 30%;
     color: black;
+    z-index : 3;
 }
 
 .rep-title {
