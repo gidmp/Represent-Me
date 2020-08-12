@@ -51,7 +51,6 @@ function App() {
       <Route path="/landingPage" component={LandingPage} />
 
       <MobileNavbar />
-      <Footer />
     </Router>
   );
 }
