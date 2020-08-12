@@ -85,6 +85,7 @@ class LogIn extends Component {
             >
               Submit
             </button>
+            <br></br>
           </div>
         </form>
       </div>

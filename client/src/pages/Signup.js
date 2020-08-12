@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Background from "../components/Background";
-import imageLink from "../assets/images/background/flagflowgirl.jpg";
+import imageLink from "../assets/images/background/flagprojection.jpg";
 import SignUp from "../components/SignUp"
 import Container from "../components/Container";
 

@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     animation: fadeIn;
     animation-duration: 2.5s;
-    padding-bottom : 80px;
+    padding-bottom : 120px;
     min-height: 600px;
+    width:100%;     
+    height: auto;
 }
