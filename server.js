@@ -33,7 +33,7 @@ app.use(passport.session());
 require("./routes/api-routes")(app);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/UserDb", () => {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://representme:representme1@ds161134.mlab.com:61134/heroku_5c2p6rg9", () => {
   console.log(`Succcessfully Connected to Db`);
 });
 app.get("*", function(req, res) {
