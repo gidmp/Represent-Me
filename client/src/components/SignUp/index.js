@@ -89,6 +89,7 @@ class SignUp extends Component {
                     </div>
                     <button className="uk-button uk-button-primary" onClick={this.handleSubmit}
                         type="submit">Submit</button>
+                    <p className="paragraph">Click <a href="/login">here</a> to login if you already have an account.</p>
                 </form>
             </div>
         )

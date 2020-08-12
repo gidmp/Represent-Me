@@ -85,7 +85,6 @@ class LogIn extends Component {
             >
               Submit
             </button>
-            <p className="paragraph">Click <a href="/login">here</a> to login if you already have an account.</p>
           </div>
         </form>
       </div>
