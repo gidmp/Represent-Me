@@ -6,7 +6,6 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
-import Footer from "./components/Footer";
 import MobileNavbar from "./components/MobileNavbar";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute/UnauthenticatedRoute";
 import AuthenticatedRoute from "./components/AuthenticatedRoute/AuthenticatedRoute";
