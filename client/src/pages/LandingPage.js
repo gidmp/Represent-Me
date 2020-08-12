@@ -8,6 +8,8 @@ import PageTitle from "../components/PageTitle";
 import Card from "../components/Card";
 import SocialMedia from "../components/SocialMedia";
 import LoginMessage from "../components/LoginMessage";
+import NewsContainer from "../components/NewsContainer";
+import NewsCard from "../components/NewsCard";
 import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
 import axios from "axios";
 
@@ -113,34 +115,43 @@ function LandingPage() {
           const socialArr = i.channels || [];
 
           return (
-                  <Card 
-                      title = {
-                          title[id]
-                      }
-                      image = {(photoUrl) ? photoUrl: placeholderPerson}
-                      name = {i.name}
-                      url = {i.urls}
-                      phone = {i.phones}
-                      party = {i.party}
-                      color = {(i.party === "Republican Party") ? 'red' : 'blue'}
-                      key = {id}
-                  >
-                    {socialArr && socialArr.map((j, id) => {
-                      return(
-                        <SocialMedia 
-                          media = {j.type}
-                          mediaId = {j.id}
-                          key = {id}
-                        />
-                      )
-                    })}
-                  </Card>
-          )
+            <Card
+              title={title[id]}
+              image={photoUrl ? photoUrl : placeholderPerson}
+              name={i.name}
+              url={i.urls}
+              phone={i.phones}
+              party={i.party}
+              color={i.party === "Republican Party" ? "red" : "blue"}
+              key={id}
+            >
+              {socialArr &&
+                socialArr.map((j, id) => {
+                  return <SocialMedia media={j.type} mediaId={j.id} key={id} />;
+                })}
+            </Card>
+          );
+        })}
+      </CardContainer>
+      {representatives.officials.length > 0 && (
+        <NewsContainer state={currentUser.state}>
+          {news.articles.map((i, id) => {
+            return (
+              <NewsCard
+                title={i.title}
+                image={i.image}
+                source={i.source.name}
+                url={i.url}
+                description={i.description}
+                date={i.publishedAt}
+                key={id}
+              />
+            );
           })}
-        </CardContainer>
-      </Background>  );
+        </NewsContainer>
+      )}
+    </Background>
+  );
 }
 
 export default LandingPage;
-
-
