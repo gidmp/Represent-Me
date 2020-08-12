@@ -49,8 +49,6 @@ function LandingPage() {
 
   useEffect(() => {
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
-    //temp address
-    address = "216 14th Ave N Saint Petersburg, Florida(FL), 33701"
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
