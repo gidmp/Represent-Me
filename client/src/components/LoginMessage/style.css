@@ -1,0 +1,20 @@
+h1 {
+  /* font-family: 'Shadows Into Light', cursive; */
+  font-weight: 400;
+}
+
+.contact-icon {
+  padding: 5px;
+}
+
+.page-title {
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+.text {
+  color: #f1f1f1;
+}

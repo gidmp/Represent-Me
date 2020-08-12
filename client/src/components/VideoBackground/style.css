@@ -1,0 +1,22 @@
+/* Style the video: 100% width and height to cover the entire window */
+#videoBG {
+    position: fixed;
+    width:100%;     
+    height: auto;
+    z-index: -1;
+}
+  
+
+@media (min-aspect-ratio: 16/9) {
+    #video {
+        width:100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    #video { 
+        width:auto;
+        height: 100%;
+    }
+}

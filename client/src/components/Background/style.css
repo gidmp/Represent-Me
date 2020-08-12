@@ -1,0 +1,9 @@
+.background-img{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: fadeIn;
+    animation-duration: 2.5s;
+    padding-bottom : 80px;
+    min-height: 600px;
+}
