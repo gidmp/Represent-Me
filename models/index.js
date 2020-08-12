@@ -38,6 +38,7 @@ const UserSchema = new Schema(
     location: {
       type: String,
       required: true,
+      minlength: 3
     },
     zipcode: {
       type: Number,
