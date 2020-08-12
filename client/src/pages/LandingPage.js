@@ -126,7 +126,7 @@ function LandingPage() {
                       color = {(i.party === "Republican Party") ? 'red' : 'blue'}
                       key = {id}
                   >
-                    {/* {socialArr.map((j, id) => {
+                    {socialArr.map((j, id) => {
                       return(
                         <SocialMedia 
                           media = {j.type}
@@ -134,7 +134,7 @@ function LandingPage() {
                           key = {id}
                         />
                       )
-                    })} */}
+                    })}
                   </Card>
           )
           })}
