@@ -110,8 +110,7 @@ function LandingPage() {
             "State Representative",
           ];
           const photoUrl = i.photoUrl;
-          const socialArr = i.channels;
-          console.log(socialArr)
+          const socialArr = i.channels || [];
 
           return (
                   <Card 
@@ -126,7 +125,7 @@ function LandingPage() {
                       color = {(i.party === "Republican Party") ? 'red' : 'blue'}
                       key = {id}
                   >
-                    {socialArr.map((j, id) => {
+                    {socialArr && socialArr.map((j, id) => {
                       return(
                         <SocialMedia 
                           media = {j.type}
@@ -136,7 +135,7 @@ function LandingPage() {
                       )
                     })}
                   </Card>
-              )
+          )
           })}
         </CardContainer>
       </Background>  );
