@@ -6,6 +6,8 @@ import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
 import Card from "../components/Card";
+import SocialMedia from "../components/SocialMedia";
+import LoginMessage from "../components/LoginMessage";
 import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
 import axios from "axios";
 
@@ -47,6 +49,8 @@ function LandingPage() {
 
   useEffect(() => {
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    //temp address
+    address = "216 14th Ave N Saint Petersburg, Florida(FL), 33701"
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
@@ -87,16 +91,11 @@ function LandingPage() {
     <Background image={imageLink}>
       <Nav />
       {representatives.officials.length === 0 ? (
-        <PageTitle
-          title="You are not logged in"
-          description="Click here to log in"
-          paddingTop={140}
-          paddingBottom={70}
-        />
+        <LoginMessage />
       ) : (
         <PageTitle
-          title="These are your representatives"
-          description="These are your representatives"
+          title="Your Representatives"
+          description="These are your elected representatives at both the state and federal level."
           paddingTop={140}
           paddingBottom={70}
         />
@@ -113,18 +112,38 @@ function LandingPage() {
             "State Representative",
           ];
           const photoUrl = i.photoUrl;
+          const socialArr = i.channels;
+          console.log(socialArr)
+
           return (
-            <Card
-              title={title[id]}
-              image={photoUrl ? photoUrl : placeholderPerson}
-              name={i.name}
-              key={id}
-            />
-          );
-        })}
-      </CardContainer>
-    </Background>
-  );
+                  <Card 
+                      title = {
+                          title[id]
+                      }
+                      image = {(photoUrl) ? photoUrl: placeholderPerson}
+                      name = {i.name}
+                      url = {i.urls}
+                      phone = {i.phones}
+                      party = {i.party}
+                      color = {(i.party === "Republican Party") ? 'red' : 'blue'}
+                      key = {id}
+                  >
+                    {socialArr.map((j, id) => {
+                      return(
+                        <SocialMedia 
+                          media = {j.type}
+                          mediaId = {j.id}
+                          key = {id}
+                        />
+                      )
+                    })}
+                  </Card>
+              )
+          })}
+        </CardContainer>
+      </Background>  );
 }
 
 export default LandingPage;
+
+
