@@ -48,7 +48,8 @@ function LandingPage() {
   }, []);
 
   useEffect(() => {
-    var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    // var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    var address = "10721 meridian ave N, Seattle, WA 98133"
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
@@ -111,7 +112,6 @@ function LandingPage() {
           ];
           const photoUrl = i.photoUrl;
           const socialArr = i.channels;
-          console.log(socialArr)
 
           return (
                   <Card 
@@ -126,7 +126,7 @@ function LandingPage() {
                       color = {(i.party === "Republican Party") ? 'red' : 'blue'}
                       key = {id}
                   >
-                    {socialArr.map((j, id) => {
+                    {/* {socialArr.map((j, id) => {
                       return(
                         <SocialMedia 
                           media = {j.type}
@@ -134,9 +134,9 @@ function LandingPage() {
                           key = {id}
                         />
                       )
-                    })}
+                    })} */}
                   </Card>
-              )
+          )
           })}
         </CardContainer>
       </Background>  );

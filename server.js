@@ -33,22 +33,12 @@ app.use(passport.session());
 require("./routes/api-routes")(app);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://representme:representme1@ds161134.mlab.com:61134/heroku_5c2p6rg9", () => {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://representme:represen@ds161134.mlab.com:61134/heroku_5c2p6rg9", () => {
   console.log(`Succcessfully Connected to Db`);
 });
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-
-
-
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
 
 
 app.listen(PORT, function () {
