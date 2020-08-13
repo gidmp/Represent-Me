@@ -1,6 +1,13 @@
 .hamburger-menu{
     position: relative;
-    top: 20px;
     right:20px;
     color: black;
+}
+
+.uk-navbar-container{
+    background-color: #FFFFFF !important;
+}
+
+.logo{
+    width: 250px !important;
 }
