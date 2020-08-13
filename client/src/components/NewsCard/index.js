@@ -3,18 +3,9 @@ import "./style.css";
 
 function NewsCard(props) {
   return (
-    <div
-      className="news-card uk-card uk-card-default uk-grid-collapse uk-width-1-1 uk-margin"
-      uk-grid="true"
-    >
-      <div className="uk-card-media-left uk-cover-container">
-        <img
-          className="article-img"
-          src={props.image}
-          alt={props.title}
-          uk-cover="true"
-        />
-        <canvas width="600" height="400"></canvas>
+    <div className="news-card uk-card uk-padding-remove-left uk-card-default">
+      <div className="uk-card-media-top">
+        <img className="article-img" src={props.image} alt={props.title} />
       </div>
       <div>
         <div className="uk-card-body">

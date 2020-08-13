@@ -1,35 +1,34 @@
-
-
-.item-card{
-    margin: 0 0 30px 30px;
+.item-card {
+  margin: 0 0 30px 30px;
 }
 
-.rep-img{
-    max-width: 100%;
+.rep-img {
+  max-width: 100%;
 }
 
 /* .info-container{
     background-color: grey;
 } */
 
-.info-section{
-    overflow: hidden;
+.info-section {
+  overflow: hidden;
 }
 
-.card-btn{
-    margin: 10px 10px 10px 0
+.card-btn {
+  margin: 10px 10px 10px 0;
 }
 
-.slide-btn{
-    top: 30%;
-    color: black;
-    z-index : 3;
+.slide-btn {
+  top: 30%;
+  color: black;
+  z-index: 3;
 }
 
 .rep-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.rep-title, .rep-name{
-    font-family: 'Libre Baskerville', serif;
+.rep-title,
+.rep-name {
+  font-family: "Libre Baskerville", serif;
 }
