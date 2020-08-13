@@ -11,7 +11,7 @@ function NewsCard(props) {
         <div className="uk-card-body">
           <h3 className="uk-card-title">{props.title}</h3>
           <p>{props.description}</p>
-          <a href={props.url} class="uk-button uk-button-text">
+          <a href={props.url} className="uk-button uk-button-text">
             Read more
           </a>
         </div>

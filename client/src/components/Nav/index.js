@@ -44,8 +44,8 @@ function Nav(props) {
                         <ul className="uk-navbar-nav uk-visible@m">
                             <li>
                             <Link to="/landingPage">Account</Link>
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <div className="uk-navbar-dropdown">
+                                        <ul className="uk-nav uk-navbar-dropdown-nav">
                                             <li><Link to="/login">Login</Link></li>
                                             <li><a onClick={handleSignOut}>Logout</a></li>
                                         </ul>
