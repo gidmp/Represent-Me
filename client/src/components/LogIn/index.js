@@ -32,7 +32,7 @@ class LogIn extends Component {
       })
       .then((response) => {
         console.log(response);
-        if (!response.data.error) {
+        if (!response.data.errmsg) {
           console.log("successful login");
           this.props.history.push("/landingPage");
         }

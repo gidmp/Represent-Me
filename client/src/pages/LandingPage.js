@@ -50,7 +50,7 @@ function LandingPage() {
   useEffect(() => {
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
     //temp address
-    address = "216 14th Ave N Saint Petersburg, Florida(FL), 33701"
+    //address = "216 14th Ave N Saint Petersburg, Florida(FL), 33701"
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
@@ -112,7 +112,7 @@ function LandingPage() {
             "State Representative",
           ];
           const photoUrl = i.photoUrl;
-          const socialArr = i.channels;
+          const socialArr = i.channels || [];
           console.log(socialArr)
 
           return (
@@ -128,7 +128,7 @@ function LandingPage() {
                       color = {(i.party === "Republican Party") ? 'red' : 'blue'}
                       key = {id}
                   >
-                    {socialArr.map((j, id) => {
+                    {socialArr && socialArr.map((j, id) => {
                       return(
                         <SocialMedia 
                           media = {j.type}
