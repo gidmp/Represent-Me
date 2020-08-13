@@ -1,14 +1,21 @@
-.item-card {
-  margin: 0 0 30px 30px;
+.item-card{
+    margin: 0 0 30px 30px;
 }
 
-.rep-img {
-  max-width: 100%;
+.rep-img{
+    max-width: 100%;
+    border: solid 3px gold
 }
 
-/* .info-container{
-    background-color: grey;
-} */
+.info-container{
+    background: url("../../assets/images/background/card-bg.jpg");
+    background-size: 100% 100%;
+    padding-bottom: 20px;
+}
+
+.rep-name-container{
+    padding: 0px;
+}
 
 .info-section {
   overflow: hidden;
@@ -18,10 +25,14 @@
   margin: 10px 10px 10px 0;
 }
 
-.slide-btn {
-  top: 30%;
-  color: black;
-  z-index: 3;
+.slide-btn{
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    padding-right: 0px;
+    margin-right: 0px;
+    color: black !important;
+    z-index : 3;
 }
 
 .rep-title {
@@ -32,3 +43,19 @@
 .rep-name {
   font-family: "Libre Baskerville", serif;
 }
+
+.rep-url{
+    font-size: 18px;
+}
+
+.party-banner{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.party-text{
+   margin-top:10px;
+}
+
