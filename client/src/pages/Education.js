@@ -3,9 +3,9 @@ import Nav from "../components/Nav";
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
+import VoteButton from "../components/VoteButton";
 import Background from "../components/Background";
 import imageLink from "../assets/images/background/buttonsandflags.jpg";
-
 
 function Education(){
     return(
@@ -58,6 +58,7 @@ function Education(){
                 <p>Constitution: https://www.constitutionparty.com/</p>
                 <p>Many candidates also run as "Independent", meaning that they do not affiliate with any particular party. Sometimes they do affiliate with a certain party, but there's another candidate running who has already been endorsed by that party. Make sure to investigate the policies that these candidates vote for so you know whether or not you want to elect them!</p>
                 <p>These are only the major and minor parties listed on most ballots in the US. This list is not exhastive- there are many other smaller parties that have been created when people feel that no other party represents them. Read up and discover which party best aligns with your beliefs.</p>
+                <VoteButton />
             </Section3>
         </div>
     )
