@@ -24,7 +24,7 @@ function Nav(props) {
     return (
         <div className="uk-position-relative">
             <div className="uk-position-top">
-                <nav className="uk-navbar-container" uk-navbar="true">
+                <nav className="uk-navbar-container" uk-navbar="true" style = {{height : 80}}>
                     <div className="uk-navbar-left">
                         <ul className="uk-navbar-nav uk-visible@m">
                             <li><Link to="/landingPage">My Representatives</Link></li>
@@ -32,8 +32,10 @@ function Nav(props) {
                         </ul>
                     </div>
                     <div className="uk-navbar-center">
-                        <Link to="/"><img id="mugshot" src={Logo} alt="Represent Me" style={{ width: 300 }} /></Link>
-                        {/* <a className="uk-navbar-item uk-logo" href="#">{props.pageTitle}</a> */}
+                        <div>
+                            <Link to="/"><img className="logo" src={Logo} alt="Represent Me" style={{ width: 300 }} /></Link>
+                            {/* <a className="uk-navbar-item uk-logo" href="#">{props.pageTitle}</a> */}
+                        </div>
                     </div>
                     <div className="uk-navbar-right">
                         <ul className="uk-navbar-nav uk-visible@m">
