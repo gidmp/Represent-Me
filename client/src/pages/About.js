@@ -4,7 +4,6 @@ import Background from "../components/Background";
 import imageLink from "../assets/images/background/votesign.jpg";
 import Section from "../components/Section";
 
-
 function About() {
     return (
         <div>

@@ -17,12 +17,12 @@
     padding: 0px;
 }
 
-.info-section{
-    overflow: hidden;
+.info-section {
+  overflow: hidden;
 }
 
-.card-btn{
-    margin: 10px 10px 10px 0
+.card-btn {
+  margin: 10px 10px 10px 0;
 }
 
 .slide-btn{
@@ -36,11 +36,12 @@
 }
 
 .rep-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.rep-title, .rep-name{
-    font-family: 'Libre Baskerville', serif;
+.rep-title,
+.rep-name {
+  font-family: "Libre Baskerville", serif;
 }
 
 .rep-url{
