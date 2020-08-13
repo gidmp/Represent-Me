@@ -11,10 +11,10 @@ function MobileNavbar(){
             <div className="uk-offcanvas-bar">
                 <button className="uk-offcanvas-close" type="button" uk-close="true"></button>
                 <ul className="mobile-nav-list uk-list uk-text-center">
-                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/">Home</Link></li>
-                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/profile">Profile</Link></li>
-                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/education">Learn</Link></li>
-                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/about">About</Link></li>
+                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/landingPage">MY REPRESENTATIVES</Link></li>
+                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/education">LEARN</Link></li>
+                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/about">ABOUT</Link></li>
+                    <li className = "mobile-nav-item" uk-toggle="target:#mobileNav"><Link to = "/login">LOGIN</Link></li>
                 </ul>
             </div>
         </div>    

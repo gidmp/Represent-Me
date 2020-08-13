@@ -6,6 +6,13 @@ import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import PageTitle from "../components/PageTitle";
 import Card from "../components/Card";
+import SocialMedia from "../components/SocialMedia";
+import LoginMessage from "../components/LoginMessage";
+import NewsContainer from "../components/NewsContainer";
+import NewsCard from "../components/NewsCard";
+import NewsTitle from "../components/NewsTitle";
+import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
+import axios from "axios";
 
 function LandingPage() {
   const [representatives, setReps] = useState({
@@ -20,10 +27,33 @@ function LandingPage() {
   const [news, setNews] = useState({
     articles: [],
   });
+  const [currentUser, setCurrentUser] = useState({
+    email: "",
+    address: "",
+    state: "",
+    zipcode: "",
+  });
 
   useEffect(() => {
-    var address = "871 Haunani Pl Wailuku Hawaii";
-    var state = "California";
+    axios
+      .get("/api/user_data")
+      .then((res) => {
+        setCurrentUser({
+          email: res.data.email,
+          address: res.data.address,
+          state: res.data.state,
+          zipcode: res.data.zipcode,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    address = "10721 meridian ave N, Seattle, WA, 98133"
+    var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
         setReps({
@@ -35,7 +65,6 @@ function LandingPage() {
       });
     API.getVoterInfo(address)
       .then((res) => {
-        console.log(res);
         setElections({
           title: res.data.election.name,
           date: res.data.election.electionDay,
@@ -51,7 +80,6 @@ function LandingPage() {
       });
     API.getNews(state)
       .then((res) => {
-        console.log(res);
         setNews({
           articles: res.data.articles,
         });
@@ -59,36 +87,81 @@ function LandingPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  // END TESTING API CALLS
+  }, [currentUser]);
+
   return (
-    <Background image={imageLink}>
-      <Nav />
-      <PageTitle
-        title="Your representatives"
-        description="These are your representatives"
-        paddingTop={140}
-        paddingBottom={70}
-      />
-      <CardContainer>
-        {console.log(representatives.officials)}
-        {representatives.officials.slice(1).map((i, id) => {
-          const title = [
-            "U.S. Senator",
-            "U.S.Senator",
-            "U.S. Representative",
-            "Governor",
-            "State Senator",
-            "State Representative",
-            "State Representative",
-          ];
-          console.log(id);
-          return (
-            <Card title={title[id]} image={i.photoUrl} name={i.name} key={id} />
-          );
-        })}
-      </CardContainer>
-    </Background>
+    <div>
+      <Background image={imageLink}>
+        <Nav />
+        {representatives.officials.length === 0 ? (
+          <LoginMessage />
+        ) : (
+          <PageTitle
+            title="Your Representatives"
+            description="These are your elected representatives at both the state and federal level."
+            paddingTop={140}
+            paddingBottom={70}
+          />
+        )}
+        <CardContainer>
+          {representatives.officials.slice(1).map((i, id) => {
+            const title = [
+              "U.S. Senator",
+              "U.S. Senator",
+              "U.S. Representative",
+              "Governor",
+              "State Senator",
+              "State Representative",
+              "State Representative",
+            ];
+            const photoUrl = i.photoUrl;
+            const socialArr = i.channels || [];
+
+            return (
+              <Card
+                title={title[id]}
+                image={photoUrl ? photoUrl : placeholderPerson}
+                name={i.name}
+                url={i.urls}
+                phone={i.phones}
+                party={i.party}
+                color={i.party === "Republican Party" ? "red" : "blue"}
+                key={id}
+              >
+                {socialArr &&
+                  socialArr.map((j, id) => {
+                    return (
+                      <SocialMedia media={j.type} mediaId={j.id} key={id} />
+                    );
+                  })}
+              </Card>
+            );
+          })}
+        </CardContainer>
+      </Background>
+      <div>
+        {representatives.officials.length > 0 && (
+          <React.Fragment>
+            <NewsTitle state={currentUser.state} />
+            <NewsContainer>
+              {news.articles.map((i, id) => {
+                return (
+                  <NewsCard
+                    title={i.title}
+                    image={i.image}
+                    source={i.source.name}
+                    url={i.url}
+                    description={i.description}
+                    date={i.publishedAt}
+                    key={id}
+                  />
+                );
+              })}
+            </NewsContainer>
+          </React.Fragment>
+        )}
+      </div>
+    </div>
   );
 }
 
