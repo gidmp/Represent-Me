@@ -79,7 +79,7 @@ class LogIn extends Component {
               />
             </div>
             <button
-              className="uk-button uk-button-primary"
+              className="uk-button login-button"
               onClick={this.handleSubmit}
               type="submit"
             >
