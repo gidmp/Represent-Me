@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../components/Nav";
-import Background from "../components/Background";
+import Background2 from "../components/Background2";
 import imageLink from "../assets/images/background/votesign.jpg";
 import Section from "../components/Section";
 
@@ -8,7 +8,7 @@ function About() {
     return (
         <div>
         <Nav />
-        <Background image={imageLink}></Background>
+        <Background2 image={imageLink}></Background2>
             <Section>
                 <h3 className="uk-card-title">About Us</h3>
                 <p>

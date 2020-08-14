@@ -165,6 +165,8 @@ function LandingPage() {
                     description={i.description}
                     date={i.publishedAt}
                     key={id}
+                    marginLeft={20}
+                    marginRight={20}
                   />
                 );
               })}
