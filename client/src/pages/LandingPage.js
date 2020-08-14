@@ -52,7 +52,6 @@ function LandingPage() {
 
   useEffect(() => {
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
-    address = "10721 meridian ave N, Seattle, WA, 98133";
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {

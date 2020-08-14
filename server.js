@@ -30,22 +30,23 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Add routes, both API and view
-//app.use(routes);
-
 require("./routes/api-routes")(app);
 
-// Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://representme:represen@ds161134.mlab.com:61134/heroku_5c2p6rg9", () => {
-//   console.log(`Succcessfully Connected to Db`);
-// });
-
+//Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/UserDb",
+  process.env.MONGODB_URI ||
+    "mongodb://representme:represen@ds161134.mlab.com:61134/heroku_5c2p6rg9",
   () => {
     console.log(`Succcessfully Connected to Db`);
   }
 );
+
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://localhost/UserDb",
+//   () => {
+//     console.log(`Succcessfully Connected to Db`);
+//   }
+// );
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

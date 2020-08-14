@@ -21,8 +21,6 @@ class LogIn extends Component {
     });
   }
   handleSubmit(event) {
-    console.log("log-in handleSubmit, username: ");
-    console.log(this.state.username);
     event.preventDefault();
     //request to server to add a new username/password
     axios
