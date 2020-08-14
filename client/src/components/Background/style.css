@@ -1,11 +1,11 @@
-.background-img{
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: fadeIn;
-    animation-duration: 2.5s;
-    padding-bottom : 120px;
-    min-height: 800px;
-    width:100%;     
-    height: auto;
+.background-img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: fadeIn;
+  animation-duration: 2.5s;
+  padding-bottom: 120px;
+  min-height: 800px;
+  width: 100%;
+  height: auto;
 }
