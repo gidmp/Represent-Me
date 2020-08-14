@@ -12,6 +12,7 @@ import NewsContainer from "../components/NewsContainer";
 import NewsCard from "../components/NewsCard";
 import NewsTitle from "../components/NewsTitle";
 import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
+import Announcement from "../components/Announcement"
 import axios from "axios";
 
 function LandingPage() {
@@ -55,6 +56,7 @@ function LandingPage() {
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
+        console.log(res);
         setReps({
           officials: res.data.officials,
         });
@@ -64,6 +66,7 @@ function LandingPage() {
       });
     API.getVoterInfo(address)
       .then((res) => {
+        console.log(res);
         setElections({
           title: res.data.election.name,
           date: res.data.election.electionDay,
@@ -95,13 +98,22 @@ function LandingPage() {
         {representatives.officials.length === 0 ? (
           <LoginMessage />
         ) : (
+          
           <PageTitle
             title="Your Representatives"
             description="These are your elected representatives at both the state and federal level."
             paddingTop={140}
             paddingBottom={70}
-          />
+          >
+            <Announcement 
+              infoUrl = {elections.electionInfoURL? elections.electionInfoURL : "https://ig.ft.com/us-election-2020/"}
+              town = {elections.title}
+              pollingLocation = {elections.pollingLocationsURL ? elections.pollingLocationsURL : "currently not available"}
+              date = {elections.date ? elections.date : "Tuesday, November 3, 2020"}
+            />
+          </PageTitle>
         )}
+
         <CardContainer>
           {representatives.officials.slice(1).map((i, id) => {
             const title = [
