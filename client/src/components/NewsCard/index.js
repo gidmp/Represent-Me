@@ -21,6 +21,7 @@ function NewsCard(props) {
             href={props.url}
             id="read-more"
             className="uk-button uk-button-text"
+            target="_blank"
           >
             Read more
           </a>
