@@ -37,3 +37,14 @@
         height: 100%;
     }
 }
+@media (max-width: 767px) {
+    #video {
+        display: none;
+    }
+    body {
+        background: url('../../assets/images/background/votesign.jpg');
+        background-size: cover;
+        background-position: center;
+
+    }
+}
