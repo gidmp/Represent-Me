@@ -17,6 +17,7 @@ import axios from "axios";
 function LandingPage() {
   const [representatives, setReps] = useState({
     officials: [],
+    loading: false
   });
   const [elections, setElections] = useState({
     title: "",
@@ -51,12 +52,14 @@ function LandingPage() {
   }, []);
 
   useEffect(() => {
+    setReps({ loading: true, officials: [] })
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
         setReps({
           officials: res.data.officials,
+          loading: false
         });
       })
       .catch((err) => {
@@ -86,7 +89,7 @@ function LandingPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, [currentUser]);
+  }, [currentUser, setReps]);
 
   return (
     <div>
@@ -95,48 +98,51 @@ function LandingPage() {
         {representatives.officials.length === 0 ? (
           <LoginMessage />
         ) : (
-          <PageTitle
-            title="Your Representatives"
-            description="These are your elected representatives at both the state and federal level."
-            paddingTop={140}
-            paddingBottom={70}
-          />
-        )}
-        <CardContainer>
-          {representatives.officials.slice(1).map((i, id) => {
-            const title = [
-              "U.S. Senator",
-              "U.S. Senator",
-              "U.S. Representative",
-              "Governor",
-              "State Senator",
-              "State Representative",
-              "State Representative",
-            ];
-            const photoUrl = i.photoUrl;
-            const socialArr = i.channels || [];
+            <PageTitle
+              title="Your Representatives"
+              description="These are your elected representatives at both the state and federal level."
+              paddingTop={140}
+              paddingBottom={70}
+            />
+          )}
+        {representatives.loading ?
+          "Loading..." :
+          <CardContainer>
+            {representatives.officials.slice(1).map((i, id) => {
+              const title = [
+                "U.S. Senator",
+                "U.S. Senator",
+                "U.S. Representative",
+                "Governor",
+                "State Senator",
+                "State Representative",
+                "State Representative",
+              ];
+              const photoUrl = i.photoUrl;
+              const socialArr = i.channels || [];
 
-            return (
-              <Card
-                title={title[id]}
-                image={photoUrl ? photoUrl : placeholderPerson}
-                name={i.name}
-                url={i.urls}
-                phone={i.phones}
-                party={i.party}
-                color={i.party === "Republican Party" ? "red" : "blue"}
-                key={id}
-              >
-                {socialArr &&
-                  socialArr.map((j, id) => {
-                    return (
-                      <SocialMedia media={j.type} mediaId={j.id} key={id} />
-                    );
-                  })}
-              </Card>
-            );
-          })}
-        </CardContainer>
+              return (
+                <Card
+                  title={title[id]}
+                  image={photoUrl ? photoUrl : placeholderPerson}
+                  name={i.name}
+                  url={i.urls}
+                  phone={i.phones}
+                  party={i.party}
+                  color={i.party === "Republican Party" ? "red" : "blue"}
+                  key={id}
+                >
+                  {socialArr &&
+                    socialArr.map((j, id) => {
+                      return (
+                        <SocialMedia media={j.type} mediaId={j.id} key={id} />
+                      );
+                    })}
+                </Card>
+              );
+            })}
+          </CardContainer>
+        }
       </Background>
       <div>
         {representatives.officials.length > 0 && (
