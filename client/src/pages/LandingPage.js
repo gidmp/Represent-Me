@@ -18,6 +18,7 @@ import axios from "axios";
 function LandingPage() {
   const [representatives, setReps] = useState({
     officials: [],
+    
   });
   const [elections, setElections] = useState({
     title: "",
@@ -52,6 +53,7 @@ function LandingPage() {
   }, []);
 
   useEffect(() => {
+    
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
@@ -59,6 +61,7 @@ function LandingPage() {
         console.log(res);
         setReps({
           officials: res.data.officials,
+          
         });
       })
       .catch((err) => {
@@ -115,6 +118,7 @@ function LandingPage() {
         )}
 
         <CardContainer>
+          
           {representatives.officials.slice(1).map((i, id) => {
             const title = [
               "U.S. Senator",
@@ -128,27 +132,28 @@ function LandingPage() {
             const photoUrl = i.photoUrl;
             const socialArr = i.channels || [];
 
-            return (
-              <Card
-                title={title[id]}
-                image={photoUrl ? photoUrl : placeholderPerson}
-                name={i.name}
-                url={i.urls}
-                phone={i.phones}
-                party={i.party}
-                color={i.party === "Republican Party" ? "red" : "blue"}
-                key={id}
-              >
-                {socialArr &&
-                  socialArr.map((j, id) => {
-                    return (
-                      <SocialMedia media={j.type} mediaId={j.id} key={id} />
-                    );
-                  })}
-              </Card>
-            );
-          })}
-        </CardContainer>
+              return (
+                <Card
+                  title={title[id]}
+                  image={photoUrl ? photoUrl : placeholderPerson}
+                  name={i.name}
+                  url={i.urls}
+                  phone={i.phones}
+                  party={i.party}
+                  color={i.party === "Republican Party" ? "red" : "blue"}
+                  key={id}
+                >
+                  {socialArr &&
+                    socialArr.map((j, id) => {
+                      return (
+                        <SocialMedia media={j.type} mediaId={j.id} key={id} />
+                      );
+                    })}
+                </Card>
+              );
+            })}
+          </CardContainer>
+        
       </Background>
       <div>
         {representatives.officials.length > 0 && (

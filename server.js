@@ -1,8 +1,6 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-
-const routes = require("./routes/api-routes");
 const app = express();
 const session = require("express-session");
 // Requiring passport as we've configured it
@@ -42,11 +40,19 @@ mongoose.connect(
 );
 
 // mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/UserDb",
+//   process.env.MONGODB_URI ||
+//     "mongodb://representme:represen@ds161134.mlab.com:61134/heroku_5c2p6rg9",
 //   () => {
 //     console.log(`Succcessfully Connected to Db`);
 //   }
 // );
+
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/UserDb",
+  () => {
+    console.log(`Succcessfully Connected to Db`);
+  }
+);
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
