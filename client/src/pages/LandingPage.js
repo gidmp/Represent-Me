@@ -12,12 +12,13 @@ import NewsContainer from "../components/NewsContainer";
 import NewsCard from "../components/NewsCard";
 import NewsTitle from "../components/NewsTitle";
 import placeholderPerson from "../assets/images/placeholder/placeholder-person.jpg";
+import Announcement from "../components/Announcement"
 import axios from "axios";
 
 function LandingPage() {
   const [representatives, setReps] = useState({
     officials: [],
-    loading: false
+    
   });
   const [elections, setElections] = useState({
     title: "",
@@ -52,14 +53,15 @@ function LandingPage() {
   }, []);
 
   useEffect(() => {
-    setReps({ loading: true, officials: [] })
+    
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
+        console.log(res);
         setReps({
           officials: res.data.officials,
-          loading: false
+          
         });
       })
       .catch((err) => {
@@ -67,6 +69,7 @@ function LandingPage() {
       });
     API.getVoterInfo(address)
       .then((res) => {
+        console.log(res);
         setElections({
           title: res.data.election.name,
           date: res.data.election.electionDay,
@@ -89,7 +92,7 @@ function LandingPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, [currentUser, setReps]);
+  }, [currentUser]);
 
   return (
     <div>
@@ -98,28 +101,36 @@ function LandingPage() {
         {representatives.officials.length === 0 ? (
           <LoginMessage />
         ) : (
-            <PageTitle
-              title="Your Representatives"
-              description="These are your elected representatives at both the state and federal level."
-              paddingTop={140}
-              paddingBottom={70}
+          
+          <PageTitle
+            title="Your Representatives"
+            description="These are your elected representatives at both the state and federal level."
+            paddingTop={140}
+            paddingBottom={70}
+          >
+            <Announcement 
+              infoUrl = {elections.electionInfoURL? elections.electionInfoURL : "https://ig.ft.com/us-election-2020/"}
+              town = {elections.title}
+              pollingLocation = {elections.pollingLocationsURL ? elections.pollingLocationsURL : "currently not available"}
+              date = {elections.date ? elections.date : "Tuesday, November 3, 2020"}
             />
-          )}
-        {representatives.loading ?
-          "Loading..." :
-          <CardContainer>
-            {representatives.officials.slice(1).map((i, id) => {
-              const title = [
-                "U.S. Senator",
-                "U.S. Senator",
-                "U.S. Representative",
-                "Governor",
-                "State Senator",
-                "State Representative",
-                "State Representative",
-              ];
-              const photoUrl = i.photoUrl;
-              const socialArr = i.channels || [];
+          </PageTitle>
+        )}
+
+        <CardContainer>
+          
+          {representatives.officials.slice(1).map((i, id) => {
+            const title = [
+              "U.S. Senator",
+              "U.S. Senator",
+              "U.S. Representative",
+              "Governor",
+              "State Senator",
+              "State Representative",
+              "State Representative",
+            ];
+            const photoUrl = i.photoUrl;
+            const socialArr = i.channels || [];
 
               return (
                 <Card
@@ -142,7 +153,7 @@ function LandingPage() {
               );
             })}
           </CardContainer>
-        }
+        
       </Background>
       <div>
         {representatives.officials.length > 0 && (
@@ -159,6 +170,8 @@ function LandingPage() {
                     description={i.description}
                     date={i.publishedAt}
                     key={id}
+                    marginLeft={20}
+                    marginRight={20}
                   />
                 );
               })}

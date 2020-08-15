@@ -4,14 +4,14 @@ import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import VoteButton from "../components/VoteButton";
-import Background from "../components/Background";
+import Background2 from "../components/Background2";
 import imageLink from "../assets/images/background/buttonsandflags.jpg";
 
 function Education(){
     return(
         <div>
         <Nav />
-        <Background image = {imageLink}></Background>
+        <Background2 image = {imageLink}></Background2>
             <Section1>
                 <h2>What's the Difference?</h2>
                 <p>
