@@ -108,12 +108,24 @@ function LandingPage() {
             paddingTop={140}
             paddingBottom={70}
           >
-            <Announcement 
-              infoUrl = {elections.electionInfoURL? elections.electionInfoURL : "https://ig.ft.com/us-election-2020/"}
-              town = {elections.title}
-              pollingLocation = {elections.pollingLocationsURL ? elections.pollingLocationsURL : "currently not available"}
-              date = {elections.date ? elections.date : "Tuesday, November 3, 2020"}
-            />
+            {elections.title ? 
+              (
+                <Announcement 
+                infoUrl = {elections.electionInfoURL}
+                town = {"Election Day is coming: " + elections.title}
+                pollingLocation = {elections.pollingLocationsURL}
+                date = {elections.date}
+                pollingurl = {elections.pollingLocationsURL}
+               />
+              )   
+              :
+              (
+                <Announcement 
+                infoUrl = "ballotpedia.org/Elections_calendar"
+                town = "There's no upcoming election in your area."
+               />  
+              )              
+            }
           </PageTitle>
         )}
 

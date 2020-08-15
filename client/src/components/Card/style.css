@@ -1,5 +1,8 @@
 .item-card{
     margin: 0 0 30px 30px;
+    min-height: 260px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .rep-img{
@@ -48,6 +51,10 @@
     font-size: 18px;
 }
 
+.rep-contact{
+  min-height: 200px;
+}
+
 .party-banner{
     position: absolute;
     width: 100%;
@@ -59,3 +66,8 @@
    margin-top:10px;
 }
 
+#wrapper {
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 520px;
+}

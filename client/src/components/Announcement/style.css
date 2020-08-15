@@ -1,15 +1,14 @@
 
 .announcement-button{
-    color: red;
-    background-color: greenyellow;
+    color: white;
+    background-color: #c70039;
     padding: 10px;
     transition: .3s ease-in-out;
 
 }
 
 .announcement-button:hover{
-    background-color: hotpink;
-    color: white;
+    background-color: #111d5e;
 }
 
 

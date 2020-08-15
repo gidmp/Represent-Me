@@ -4,7 +4,7 @@ import "./style.css";
 
 function Card(props) {
   return (
-    <div>
+    <div id = "wrapper">
       <div className="uk-card uk-card-default item-card">
         <div className="uk-card-body info-container">
           <div
