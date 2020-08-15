@@ -53,6 +53,7 @@ function LandingPage() {
 
   useEffect(() => {
     var address = `${currentUser.address} ${currentUser.state} ${currentUser.zipcode}`;
+    address = "319 Stateline Dr Eureka Springs, Arkansas, 72631"
     var state = `${currentUser.state}`;
     API.getRepresentatives(address)
       .then((res) => {
